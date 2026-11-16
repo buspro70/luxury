@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Будьте красивы — салон красоты премиум-класса в Томске</title>
+<meta name="description" content="Салон красоты «Будьте красивы» в Томске. Стрижки, окрашивание, уход за волосами, ногтевой сервис, брови и ресницы. Ул. Карташова, 68. Запись по телефону.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0c09;
+  --bg2:#161310;
+  --card:#1d1915;
+  --gold:#c9a961;
+  --gold-light:#e8d5a4;
+  --text:#efe9df;
+  --muted:#9b9284;
+  --serif:'Playfair Display',serif;
+  --sans:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+::selection{background:var(--gold);color:#111}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:.02em}
+.container{max-width:1180px;margin:0 auto;padding:0 32px}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.eyebrow::after{content:'';display:block;width:48px;height:1px;background:var(--gold);margin-top:12px}
+.section{padding:110px 0;position:relative}
+.section-head{max-width:640px;margin-bottom:64px}
+.section-head h2{font-size:clamp(32px,4.5vw,52px);line-height:1.15}
+.section-head p{color:var(--muted);margin-top:18px;font-size:17px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:.4s}
+nav.scrolled{background:rgba(14,12,9,.92);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid rgba(201,169,97,.15)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--serif);font-size:22px;color:var(--text);text-decoration:none;letter-spacing:.05em}
+.logo span{color:var(--gold);font-style:italic}
+nav ul{display:flex;gap:36px;list-style:none}
+nav a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:.3s}
+nav a:hover{color:var(--gold)}
+.nav-cta{border:1px solid var(--gold);padding:10px 22px!important;border-radius:2px;color:var(--gold)!important}
+.nav-cta:hover{background:var(--gold);color:#111!important}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:6px}
+.burger span{width:26px;height:1px;background:var(--gold)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 60% at 75% 20%,rgba(201,169,97,.14),transparent 60%),
+  radial-gradient(ellipse 60% 50% at 10% 90%,rgba(201,169,97,.07),transparent 60%)}
+.hero::after{content:'';position:absolute;inset:0;background-image:
+  linear-gradient(rgba(201,169,97,.05) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(201,169,97,.05) 1px,transparent 1px);
+  background-size:72px 72px;mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,#000 30%,transparent 75%)}
+.hero-inner{position:relative;z-index:2}
+.hero h1{font-size:clamp(44px,7vw,92px);line-height:1.06;margin:26px 0}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .lead{color:var(--muted);max-width:520px;font-size:19px;margin-bottom:44px}
+.btn{display:inline-block;text-decoration:none;font-size:13px;letter-spacing:.18em;text-transform:uppercase;padding:18px 42px;border-radius:2px;transition:.35s;margin-right:16px}
+.btn-solid{background:var(--gold);color:#141210;font-weight:600}
+.btn-solid:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(201,169,97,.5);color:var(--gold)}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(201,169,97,.08)}
+.hero-stats{display:flex;gap:56px;margin-top:76px;flex-wrap:wrap}
+.stat b{font-family:var(--serif);font-size:38px;color:var(--gold);font-weight:500;display:block}
+.stat span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);z-index:2}
+.scroll-hint::after{content:'';display:block;width:1px;height:44px;background:linear-gradient(var(--gold),transparent);margin:10px auto 0;animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* SERVICES */
+.services{background:var(--bg2)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.svc{background:var(--card);border:1px solid rgba(201,169,97,.12);padding:44px 38px;position:relative;transition:.4s;border-radius:3px}
+.svc:hover{border-color:rgba(201,169,97,.45);transform:translateY(-6px)}
+.svc .num{font-family:var(--serif);font-size:15px;color:var(--gold);font-style:italic}
+.svc h3{font-size:26px;margin:14px 0 14px}
+.svc p{color:var(--muted);font-size:15px}
+.svc ul{list-style:none;margin-top:18px}
+.svc li{padding:9px 0;border-top:1px solid rgba(201,169,97,.1);font-size:14.5px;display:flex;justify-content:space-between;gap:16px}
+.svc li span{color:var(--muted)}
+.svc li b{color:var(--gold-light);font-weight:400;white-space:nowrap}
+
+/* FEATURES */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:rgba(201,169,97,.15)}
+.feat{background:var(--bg);padding:48px 34px}
+.feat h3{font-size:21px;margin-bottom:10px;color:var(--gold-light)}
+.feat p{color:var(--muted);font-size:15px}
+
+/* MASTERS */
+.masters{background:var(--bg2)}
+.master-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+.master{text-align:center;padding:48px 28px;background:var(--card);border:1px solid rgba(201,169,97,.12);border-radius:3px;transition:.4s}
+.master:hover{border-color:rgba(201,169,97,.4)}
+.avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:34px;color:#141210;background:linear-gradient(135deg,var(--gold-light),var(--gold))}
+.master h3{font-size:24px}
+.master .role{color:var(--gold);font-size:12px;letter-spacing:.22em;text-transform:uppercase;margin:10px 0 14px}
+.master p{color:var(--muted);font-size:14.5px}
+
+/* REVIEWS */
+.reviews{background:var(--bg2)}
+.quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.quote{background:var(--card);border:1px solid rgba(201,169,97,.12);padding:40px 36px;border-radius:3px;position:relative}
+.quote::before{content:'\201C';font-family:var(--serif);font-size:80px;color:var(--gold);line-height:1;position:absolute;top:22px;left:28px;opacity:.55}
+.quote p{font-style:italic;font-size:16.5px;margin:30px 0 22px;position:relative;z-index:1}
+.quote footer{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.quote footer span{color:var(--muted);text-transform:none;letter-spacing:0;display:block;margin-top:4px}
+.rating-line{display:flex;align-items:center;gap:14px;margin-bottom:56px}
+.rating-line .big{font-family:var(--serif);font-size:64px;color:var(--gold);line-height:1}
+.stars{color:var(--gold);letter-spacing:4px}
+.rating-line .txt{color:var(--muted);font-size:14px}
+
+/* BOOKING */
+.booking{background:linear-gradient(135deg,#1a150e 0%,#0e0c09 60%);position:relative}
+.booking::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 85% 25%,rgba(201,169,97,.16),transparent 60%);pointer-events:none}
+.booking-inner{position:relative;z-index:1;max-width:720px;margin:0 auto;text-align:center}
+.booking h2{font-size:clamp(34px,4.6vw,56px);margin-bottom:20px}
+.booking p{color:var(--muted);margin-bottom:44px}
+.contact-rows{display:flex;justify-content:center;gap:64px;flex-wrap:wrap;margin-bottom:48px}
+.contact-rows div b{display:block;font-family:var(--serif);font-size:21px;color:var(--gold-light);font-weight:500}
+.contact-rows div span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.hours{font-size:14.5px;color:var(--muted)}
+.hours b{color:var(--text);font-weight:500}
+
+footer{padding:38px 0;border-top:1px solid rgba(201,169,97,.12);text-align:center;color:var(--muted);font-size:13px}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:820px){
+  nav ul{position:fixed;inset:0;background:rgba(14,12,9,.98);flex-direction:column;align-items:center;justify-content:center;gap:32px;transform:translateX(100%);transition:.4s}
+  nav ul.open{transform:none}
+  .burger{display:flex}
+  .section{padding:80px 0}
+  .hero-stats{gap:32px}
+  .contact-rows{gap:32px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <a class="logo" href="#top">Будьте <span>красивы</span></a>
+    <ul id="menu">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#masters">Мастера</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#booking" class="nav-cta">Записаться</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container hero-inner">
+    <span class="eyebrow reveal">Салон красоты · Томск · Кировский район</span>
+    <h1 class="reveal">Красота, которой<br><em>доверяют</em> годами</h1>
+    <p class="lead reveal">Стрижки и окрашивание, уход за волосами, ногтевой сервис, брови и ресницы — всё в одном месте. Мастера, к которым возвращаются всей семьёй.</p>
+    <div class="reveal">
+      <a class="btn btn-solid" href="#booking">Записаться онлайн</a>
+      <a class="btn btn-ghost" href="#services">Услуги и цены</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat"><b>4.9</b><span>Рейтинг 2ГИС</span></div>
+      <div class="stat"><b>85+</b><span>Оценок клиентов</span></div>
+      <div class="stat"><b>10:00</b><span>Открытие ежедневно</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint">Листайте</div>
+</header>
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Услуги</span>
+      <h2>Сфера мастерства</h2>
+      <p>От стрижки до сложного окрашивания — подбираем то, что действительно вам подойдёт, и подсказываем, как ухаживать за результатом.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <span class="num">I — Волосы</span>
+        <h3>Стрижки и окрашивание</h3>
+        <p>Женские, мужские и детские стрижки, сложное окрашивание, завивка, прикорневой объём и свадебные причёски.</p>
+        <ul>
+          <li>Женская стрижка <b>от 600 ₽</b></li>
+          <li>Мужская стрижка <b>от 500 ₽</b></li>
+          <li>Сложное окрашивание <b>по записи</b></li>
+          <li>Вечерние причёски <b>по записи</b></li>
+        </ul>
+      </div>
+      <div class="svc reveal">
+        <span class="num">II — Уход</span>
+        <h3>Уход и оздоровление</h3>
+        <p>Восстанавливающие процедуры, после которых волосы шелковистые и блестящие — без инъекций и ботокса.</p>
+        <ul>
+          <li>Уход «Счастье для волос» <b>по записи</b></li>
+          <li>Полировка волос <b>по записи</b></li>
+          <li>Ламинирование <b>по записи</b></li>
+          <li>Прикорневой объём <b>по записи</b></li>
+        </ul>
+      </div>
+      <div class="svc reveal">
+        <span class="num">III — Детали</span>
+        <h3>Ногти, брови, ресницы</h3>
+        <p>Аппаратный маникюр и педикюр, гель-лак, парафиновые ванночки, коррекция и окрашивание бровей.</p>
+        <ul>
+          <li>Гель-лак <b>по записи</b></li>
+          <li>Аппаратный маникюр <b>по записи</b></li>
+          <li>Коррекция бровей <b>по записи</b></li>
+          <li>Ламинирование бровей <b>по записи</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Почему нас выбирают</span>
+      <h2>Небольшие детали, которые всё меняют</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal"><h3>Слушают с первого раза</h3><p>Показываете фото — получаете именно то, что хотели. Мастера советуют, как сделать ещё лучше, но не навязывают.</p></div>
+      <div class="feat reveal"><h3>Мастера-профессионалы</h3><p>Универсалы, которые работают с любой длиной и структурой волос, — от детской стрижки до колористики.</p></div>
+      <div class="feat reveal"><h3>Уют без пафоса</h3><p>Чисто, аккуратно, по-домашнему комфортно. Чай, кофе и вкусняшки — за нами.</p></div>
+      <div class="feat reveal"><h3>Удобно добраться</h3><p>Ул. Карташова, 68 — 4 минуты до пл. Кирова, рядом просторная парковка.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section masters" id="masters">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Команда</span>
+      <h2>Мастера, к которым возвращаются</h2>
+      <p>Клиенты записываются к ним повторно и приводят родных. Познакомьтесь — и найдите своего мастера.</p>
+    </div>
+    <div class="master-grid">
+      <div class="master reveal"><div class="avatar">Ю</div><h3>Юлия</h3><div class="role">Парикмахер-универсал</div><p>«Сел в кресло и отпустил ситуацию» — так пишут о ней постоянные клиенты. Стрижки, окрашивание, советы по укладке.</p></div>
+      <div class="master reveal"><div class="avatar">О</div><h3>Ольга</h3><div class="role">Колорист · парикмахер</div><p>Колорист, от которой уходят с «именно тем цветом, что хотела». Работает с клиентами годами.</p></div>
+      <div class="master reveal"><div class="avatar">О</div><h3>Олеся</h3><div class="role">Парикмахер-универсал</div><p>Идеально ровный срез, укладка, ламинирование и подробные ответы на все вопросы о волосах.</p></div>
+      <div class="master reveal"><div class="avatar">А</div><h3>Анна</h3><div class="role">Парикмахер-универсал</div><p>Вежливость и внимание к деталям: стрижки и уходы с понятными объяснениями «что и как».</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Отзывы</span>
+      <h2>Слова наших гостей</h2>
+    </div>
+    <div class="rating-line reveal">
+      <div class="big">4.9</div>
+      <div class="stars">★★★★★</div>
+      <div class="txt">средняя оценка по 85 отзывам<br>в справочнике 2ГИС</div>
+    </div>
+    <div class="quote-grid">
+      <div class="quote reveal"><p>Вежливость, помещение, профессионализм. Цены доступные, а персонал справляется со своей работой как в самых люксовых салонах.</p><footer>Даниил<span>клиент салона</span></footer></div>
+      <div class="quote reveal"><p>Ольга — мастер с золотыми руками, понимает, какая стрижка подойдёт образу и стилю. Я нашла своего мастера.</p><footer>Юлия П.<span>клиент салона</span></footer></div>
+      <div class="quote reveal"><p>Хожу сюда уже четвёртый год. Мастера меняются, но качество никогда не разочаровывает — результат всегда такой, как описываю перед работой.</p><footer>Артур<span>клиент салона</span></footer></div>
+      <div class="quote reveal"><p>Уютная атмосфера, без пафоса. Чисто, аккуратно, но главное — руки мастера. Ещё понравилась запись онлайн.</p><footer>Евгения П.<span>клиент салона</span></footer></div>
+    </div>
+  </div>
+</section>
+
+<section class="section booking" id="booking">
+  <div class="booking-inner">
+    <span class="eyebrow reveal">Запись</span>
+    <h2 class="reveal">Приходите — и будьте<br>красивы</h2>
+    <p class="reveal">Открываемся в 10:00 ежедневно, приём по предварительной записи — онлайн, в мессенджерах или по телефону.</p>
+    <div class="contact-rows reveal">
+      <div><span>Адрес</span><b>ул. Карташова, 68</b></div>
+      <div><span>Телефон</span><b>+7 923 421-00-00</b></div>
+      <div><span>Часы</span><b>с 10:00, по записи</b></div>
+    </div>
+    <div class="reveal">
+      <a class="btn btn-solid" href="#">Онлайн-запись</a>
+      <a class="btn btn-ghost" href="#">WhatsApp</a>
+      <a class="btn btn-ghost" href="#">Telegram</a>
+    </div>
+    <p class="hours reveal" style="margin-top:40px">Есть Wi-Fi для гостей. Оплата: карта, наличные, перевод, QR-код. Доступный вход для людей с инвалидностью.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© 2026 Салон красоты «Будьте красивы» · Томск, ул. Карташова, 68 · Рейтинг 4.9 в 2ГИС</div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.onclick=()=>menu.classList.toggle('open');
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
